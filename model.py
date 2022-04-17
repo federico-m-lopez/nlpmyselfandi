@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+import spacy
+import nltk
+
+nltk.download('stopwords')
+spacy.cli.download("en_core_web_lg")
+spacy.cli.download("en_core_web_sm")
+
 import scipdf
 import re
 import numpy as np
-import nltk
-import spacy
 import gensim
 import pandas as pd
 import summa
@@ -28,10 +33,6 @@ class DataModel:
         self.init()
         
     def init(self):
-        nltk.download('stopwords')
-        spacy.cli.download("en_core_web_lg")
-        spacy.cli.download("en_core_web_sm")
-        
         self.filename = self.path + '/' + self.file
         #todo: enable before production
         #self.article = scipdf.parse_pdf_to_dict(self.filename, grobid_url='https://cloud.science-miner.com/grobid/') 
