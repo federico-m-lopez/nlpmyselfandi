@@ -11,4 +11,4 @@ streamlit==1.8.1
 textblob==0.17.1
 wordcloud==1.8.1
 git+https://github.com/titipata/scipdf_parser
-git+git://github.com/davidadamojr/TextRank.git
+summa==1.2.0

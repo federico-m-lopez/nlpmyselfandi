@@ -75,10 +75,10 @@ if arxiv_paper:
         
         # st.text()
         st.subheader('Key phrases')
-        st.markdown(justify(f'{", ".join(list(analytics_model.data["tr"]["key_phrases"])[0:15])}'), unsafe_allow_html = True)
+        st.markdown(justify(f'{", ".join(analytics_model.data["tr"]["keywords"])}'), unsafe_allow_html = True)
         
         st.subheader('Key sentences')
-        key_sentences_txt=".\n\n".join(analytics_model.data["tr"]["key_sentences"].split("."))
+        key_sentences_txt=".\n\n".join(analytics_model.data["tr"]["summary"])
         st.markdown(justify(key_sentences_txt), unsafe_allow_html = True)
 
         # st.header('Summarization:')

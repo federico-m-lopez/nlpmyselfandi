@@ -6,7 +6,7 @@ import nltk
 import spacy
 import gensim
 import pandas as pd
-import textrank
+import summa
 
 from textblob import TextBlob
 from sorcery import dict_of
@@ -90,7 +90,7 @@ class DataModel:
         result['stat'] = self.generate_stat_data()
         result['wc'] = self.generate_wordcloud_data()
         result['lda'] = self.generate_lda_data()
-        result['tr'] = self.generate_textrank_data()
+        result['tr'] = self.generate_summarized_data()
         result['kmeans'] = self.generate_kmeans_data()
         
         return result
@@ -124,8 +124,8 @@ class DataModel:
     
     def generate_lda_data(self):
         ## pre-process corpus
-        n_ngrams = 5
-        n_topics = 2
+        n_ngrams = 3
+        n_topics = 5
         
         lst_corpus = []
         for string in self.clean_text.split('.'):
@@ -153,10 +153,10 @@ class DataModel:
         self.dtf_topics = pd.DataFrame(lst_dics, columns=['topic','id','word','weight'])
         return self.dtf_topics.to_dict()
 
-    def generate_textrank_data(self):
-        key_phrases = textrank.extract_key_phrases(self.clean_text)
-        key_sentences = textrank.extract_sentences(self.clean_text)
-        return dict(key_phrases=key_phrases, key_sentences=key_sentences)
+    def generate_summarized_data(self):
+        keywords = summa.keywords.keywords(self.clean_text, words=20, split=True)
+        summary = summa.summarizer.summarize(self.clean_text, words=150, split=True)
+        return dict(keywords=keywords, summary=summary)
 
 
     def generate_kmeans_data(self):
