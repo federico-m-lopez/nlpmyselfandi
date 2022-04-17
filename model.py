@@ -28,6 +28,8 @@ class DataModel:
         self.init()
         
     def init(self):
+        nltk.download('stopwords')
+        
         self.filename = self.path + '/' + self.file
         #todo: enable before production
         #self.article = scipdf.parse_pdf_to_dict(self.filename, grobid_url='https://cloud.science-miner.com/grobid/') 
