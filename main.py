@@ -31,8 +31,9 @@ st.subheader(app_description)
 
 #ARXIV CONTROLS
 arxiv_input_url = st.text_input('Enter arxiv url', placeholder=default_input_url, value=default_input_url)
-print(arxiv_input_url[0:22])
-if arxiv_input_url[0:22] != 'https://arxiv.org/pdf/':
+#todo: this should be a regex
+if arxiv_input_url[0:22] != 'https://arxiv.org/pdf/' and
+   arxiv_input_url[0:35] != 'https://arxiv.org/ftp/arxiv/papers/':
     st.text('url not matching, abort')
     st.stop()
 
