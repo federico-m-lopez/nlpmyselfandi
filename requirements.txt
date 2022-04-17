@@ -9,6 +9,6 @@ sorcery==0.2.2
 spacy==3.2.1
 streamlit==1.8.1
 textblob==0.17.1
-textrank==0.1.0
 wordcloud==1.8.1
 git+https://github.com/titipata/scipdf_parser
+git+git://github.com/davidadamojr/TextRank.git
