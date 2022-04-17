@@ -12,5 +12,3 @@ textblob==0.17.1
 wordcloud==1.8.1
 git+https://github.com/titipata/scipdf_parser
 summa==1.2.0
-en_core_web_sm==3.2.0
-en_core_web_lg==3.2.0

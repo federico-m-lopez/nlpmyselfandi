@@ -29,6 +29,8 @@ class DataModel:
         
     def init(self):
         nltk.download('stopwords')
+        spacy.cli.download("en_core_web_lg")
+        spacy.cli.download("en_core_web_sm")
         
         self.filename = self.path + '/' + self.file
         #todo: enable before production
